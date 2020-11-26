@@ -1,21 +1,25 @@
 from pathlib import Path
+from dynaconf import settings as _settings
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = Path(__file__).parent.resolve()
+BASE_DIR = PROJECT_DIR.parent.resolve()
+REPO_DIR = BASE_DIR.parent.resolve()
 
-SECRET_KEY = '94((rdm%7#efcezt%&z&!20!9-06l!jb%4v&0lj!arw#n$sh6l'
+SECRET_KEY = _settings.SECRET_KEY
 
-DEBUG = True
+DEBUG = _settings.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + ["localhost", "127.0.0.1"]
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
+INSTALLED_APPS_ORDERED = {
+    0: "django.contrib.admin",
+    10: "django.contrib.auth",
+    20: "django.contrib.contenttypes",
+    30: "django.contrib.sessions",
+    40: "django.contrib.messages",
+    50: "django.contrib.staticfiles",}
+
+INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -31,15 +35,17 @@ ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            PROJECT_DIR / "templates",
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
@@ -79,4 +85,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+SITE_ID = _settings.SITE_ID
+
+STATIC_URL = "/assets/"
+
+STATICFILES_DIRS = [PROJECT_DIR / "static"]
+
+STATIC_ROOT = REPO_DIR / ".static"
