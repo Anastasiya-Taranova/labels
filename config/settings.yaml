@@ -1,0 +1,25 @@
+default:
+  ALLOWED_HOSTS: []
+  DATABASE_URL: ""
+  SECRET_KEY: ""
+  SITE_ID: 0
+  TIME_ZONE: ""
+  DEBUG: true
+  API_KEY: ""
+
+development:
+  SITE_ID: 1
+  TIME_ZONE: "Europe/Minsk"
+  DEBUG: true
+
+docker:
+  DATABASE_URL: "postgresql://anastasiyataranava:1@task-manager-db:5432/tasks"
+  SECRET_KEY: "1"
+  SITE_ID: 1
+  TIME_ZONE: "Europe/Minsk"
+
+test:
+  EMAIL_FROM: "test@test.name"
+  SITE_ID: 1
+  TIME_ZONE: "UTC"
+  DEBUG: true
