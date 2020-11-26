@@ -12,6 +12,10 @@ development:
   TIME_ZONE: "Europe/Minsk"
   DEBUG: true
 
+ci:
+  DATABASE_URL: "postgres://ci:ci@localhost:5432/ci?sslmode=disable"
+  SECRET_KEY: "1"
+
 test:
   SITE_ID: 1
   TIME_ZONE: "UTC"
