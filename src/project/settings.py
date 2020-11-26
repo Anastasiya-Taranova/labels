@@ -3,6 +3,9 @@ from pathlib import Path
 import dj_database_url
 from dynaconf import settings as _settings
 
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 PROJECT_DIR = Path(__file__).parent.resolve()
 BASE_DIR = PROJECT_DIR.parent.resolve()
 REPO_DIR = BASE_DIR.parent.resolve()
@@ -92,3 +95,11 @@ STATIC_URL = "/assets/"
 STATICFILES_DIRS = [PROJECT_DIR / "static"]
 
 STATIC_ROOT = REPO_DIR / ".static"
+
+
+sentry_sdk.init(
+    dsn="https://2d9c4ceaaeb54a11b5fa5af67c28a0c3@o383048.ingest.sentry.io/5212832",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+    send_default_pii=True
+)

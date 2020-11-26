@@ -13,7 +13,6 @@ development:
   DEBUG: true
 
 test:
-  EMAIL_FROM: "test@test.name"
   SITE_ID: 1
   TIME_ZONE: "UTC"
   DEBUG: true
