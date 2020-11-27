@@ -9,6 +9,7 @@ dynaconf = { extras = ["yaml"], version = "*" }
 dj-database-url = "*"
 psycopg2-binary = "*"
 sentry-sdk = "*"
+pytest = "*"
 
 [dev-packages]
 black = "==20.8b1"

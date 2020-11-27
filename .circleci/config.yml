@@ -57,6 +57,10 @@ jobs:
           name: (Running Local Web Server)
           command: make run
           background: true
+      - run:
+          name: Performing Tests
+          command: |
+            make test
 
 workflows:
   main:

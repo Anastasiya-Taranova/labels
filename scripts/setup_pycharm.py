@@ -1,8 +1,7 @@
 import dataclasses
 from itertools import chain
 from pathlib import Path
-from typing import Dict
-from typing import Optional
+from typing import Dict, Optional
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
