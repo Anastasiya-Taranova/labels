@@ -99,10 +99,8 @@ createdb:
 .PHONY: migrations
 migrations:
 	$(call log, generating migrations)
-	$(PYTHON) migrations
 
 
 .PHONY: migrate
 migrate:
 	$(call log, applying migrations)
-	$(PYTHON) migrate
