@@ -18,7 +18,7 @@ jobs:
       - run:
           name: (Waiting for Postgres to be ready)
           command: |
-            ./.circleci/wait_for_postgresql.sh || exit 1
+            ./scripts/wait_for_postgresql.sh || exit 1
       - restore_cache:
           keys:
             - cc-venv-{{ checksum "Pipfile.lock" }}
