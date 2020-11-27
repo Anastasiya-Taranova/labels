@@ -1,7 +1,7 @@
 from multiprocessing import cpu_count
 
-from scripts.consts import DIR_SRC
-from scripts.utils import get_setting
+from consts import DIR_SRC
+from utils import get_setting
 
 try:
     from pathlib import Path
