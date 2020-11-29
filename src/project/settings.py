@@ -17,8 +17,8 @@ DEBUG = _settings.DEBUG
 ALLOWED_HOSTS = _settings.ALLOWED_HOSTS + ["localhost", "127.0.0.1"]
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 INSTALLED_APPS_ORDERED = {
@@ -28,13 +28,12 @@ INSTALLED_APPS_ORDERED = {
     30: "django.contrib.sessions",
     40: "django.contrib.messages",
     50: "django.contrib.staticfiles",
-    60: 'django.contrib.sites',
-    2000: 'allauth',
-    3000: 'allauth.account',
-    4000: 'allauth.socialaccount',
-    5000: 'allauth.socialaccount.providers.github',
-    1000: 'applications.index.apps.IndexConfig',
-
+    60: "django.contrib.sites",
+    2000: "allauth",
+    3000: "allauth.account",
+    4000: "allauth.socialaccount",
+    5000: "allauth.socialaccount.providers.github",
+    1000: "applications.index.apps.IndexConfig",
 }
 
 INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
@@ -109,15 +108,15 @@ STATICFILES_DIRS = [PROJECT_DIR / "static"]
 STATIC_ROOT = REPO_DIR / ".static"
 
 SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'APP': {
-            'client_id': _settings.GITHUB_CLIENT_ID,
-            'secret': _settings.GITHUB_SECRET,
+    "github": {
+        "APP": {
+            "client_id": _settings.GITHUB_CLIENT_ID,
+            "secret": _settings.GITHUB_SECRET,
         },
-        'SCOPE': [
-            'user',
-            'repo',
-            'admin:org',
+        "SCOPE": [
+            "user",
+            "repo",
+            "admin:org",
         ],
     }
 }
@@ -129,6 +128,6 @@ sentry_sdk.init(
     send_default_pii=True,
 )
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
-LOGIN_REDIRECT_URL = reverse_lazy('index:index')
+LOGIN_REDIRECT_URL = reverse_lazy("index:index")
