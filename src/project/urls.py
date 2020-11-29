@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 
 def trigger_error(request):
@@ -8,5 +8,7 @@ def trigger_error(request):
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("", include('applications.index.urls')),
     path("sentry-debug/", trigger_error),
+    path('accounts/', include('allauth.urls')),
 ]

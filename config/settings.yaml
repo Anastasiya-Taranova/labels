@@ -23,6 +23,8 @@ default:
   VENV_SYNTHETIC: false
   PROJECT_NAME: ""
   TEMPLATE_ENGINE: "Django"
+  GITHUB_CLIENT_ID: ""
+  GITHUB_SECRET: ""
 
 
 development:
