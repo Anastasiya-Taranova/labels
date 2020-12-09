@@ -1,21 +1,7 @@
 from multiprocessing import cpu_count
 
-from consts import DIR_SRC
-from utils import get_setting
-
-try:
-    from pathlib import Path
-
-    _this_dir = Path(__file__).parent.resolve().as_posix()
-    import sys
-
-    sys.path.append(_this_dir)
-
-
-finally:
-    print("[done] reading Gunicorn config")
-
-# --------------------------------------------
+from scripts.dirs import DIR_SRC
+from scripts.utils import get_setting
 
 _port = get_setting("PORT", 8000, convert=int)
 bind = f"0.0.0.0:{_port}"

@@ -33,11 +33,7 @@ def view_label(owner, repo, name_label):
 
 
 def update_label(owner, repo, name_label):
-    data = {
-        "new_name": "xxxx",
-        "description": "xxxxx",
-        "color": "b01f26"
-    }
+    data = {"new_name": "xxxx", "description": "xxxxx", "color": "b01f26"}
     url = f"https://api.github.com/repos/{owner}/{repo}/labels/{name_label}"
     response = requests.patch(url, json=data, headers=headers)
     return response
