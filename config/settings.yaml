@@ -12,7 +12,7 @@ default:
     - config
   DIRS_SOURCES:
     - src
-    - scripts
+    - utils
   DIRS_EXCLUDED:
     - .idea
     - .pytest_cache
@@ -25,6 +25,7 @@ default:
   TEMPLATE_ENGINE: "Django"
   GITHUB_CLIENT_ID: ""
   GITHUB_SECRET: ""
+  GITHUB_ACCESS_TOKEN: ""
 
 
 development:
