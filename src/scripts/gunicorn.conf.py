@@ -1,7 +1,7 @@
 from multiprocessing import cpu_count
 
-from dirs import DIR_SRC
-from utils import get_setting
+from scripts.dirs import DIR_SRC
+from scripts.utils import get_setting
 
 _port = get_setting("PORT", 8000, convert=int)
 bind = f"0.0.0.0:{_port}"

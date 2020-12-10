@@ -43,3 +43,9 @@ test:
   SITE_ID: 1
   TIME_ZONE: "UTC"
   DEBUG: true
+
+docker:
+  SECRET_KEY: "1"
+  SITE_ID: 1
+  TIME_ZONE: "Europe/Minsk"
+  DATABASE_URL: "postgresql://anastasiyataranava:1@labels-db:5432/labels"

@@ -3,21 +3,36 @@ version: 2.1
 orbs:
   postgres: onehq/postgres@1.1.0
 
+workflows:
+  main:
+    jobs:
+      - build-and-test:
+          context:
+            - docker-hub-creds
 jobs:
   build-and-test:
-    docker:
-      - image: circleci/python:3.8.5-browsers
-      - image: circleci/postgres:9.6.9-alpine
-        environment:
-          POSTGRES_DB: ci
-          POSTGRES_PASSWORD: ci
-          POSTGRES_USER: ci
-    environment:
-      DATABASE_URL: "postgres://ci:ci@localhost:5432/ci?sslmode=disable"
+    build-and-test:
+      environment:
+        DATABASE_URL: "postgres://ci:ci@localhost:5432/ci?sslmode=disable"
         ENV_FOR_DYNACONF: ci
         PGPASSWORD: ci
         PIPENV_VENV_IN_PROJECT: 1
         PYTHONPATH: src
+
+      docker:
+        - image: circleci/python:3.9.0-browsers
+          auth:
+            username: $DOCKERHUB_USERNAME
+            password: $DOCKERHUB_PASSWORD
+
+        - image: circleci/postgres:12.1-alpine
+          auth:
+            username: $DOCKERHUB_USERNAME
+            password: $DOCKERHUB_PASSWORD
+          environment:
+            POSTGRES_DB: ci
+            POSTGRES_PASSWORD: ci
+            POSTGRES_USER: ci
     steps:
       - checkout
 

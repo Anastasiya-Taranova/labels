@@ -1,0 +1,34 @@
+version: "3.3"
+services:
+  labels-web:
+    build: ./
+    container_name: labels-web
+    depends_on:
+      - labels-db
+    entrypoint: ["make", "wait-for-db", "run-prod"]
+    environment:
+      PORT: 80
+      ENV_FOR_DYNACONF: docker
+    image: labels-web
+    ports:
+      - "8888:80"
+  labels-db:
+    container_name: labels-db
+    environment:
+      POSTGRES_USER: anastasiyataranava
+      POSTGRES_PASSWORD: 1
+      POSTGRES_DB: labels
+    image: postgres:13.1-alpine
+    ports:
+      - "5555:5432"
+    restart: always
+  labels-dba:
+    container_name: labels-dba
+    image: adminer
+    restart: always
+    ports:
+      - 5556:8080
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
