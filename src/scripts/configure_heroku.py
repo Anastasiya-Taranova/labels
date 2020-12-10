@@ -1,5 +1,4 @@
 import requests
-
 from utils import get_setting
 
 API = "https://api.heroku.com/apps"

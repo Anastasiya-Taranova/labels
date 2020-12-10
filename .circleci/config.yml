@@ -80,8 +80,3 @@ jobs:
           name: Performing Tests
           command: |
             make test
-
-workflows:
-  main:
-    jobs:
-      - build-and-test

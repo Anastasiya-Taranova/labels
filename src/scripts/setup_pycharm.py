@@ -5,9 +5,8 @@ from typing import Dict, Optional
 from xml.etree import ElementTree
 from xml.etree.ElementTree import Element
 
-from dynaconf import settings
-
 from dirs import DIR_IDEA
+from dynaconf import settings
 
 assert (
     DIR_IDEA.is_dir()
