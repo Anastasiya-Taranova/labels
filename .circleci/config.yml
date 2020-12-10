@@ -37,7 +37,7 @@ jobs:
       - checkout
 
       - run:
-          name: (Waiting for Postgres tobe ready)
+          name: (Waiting for Postgres to be ready)
           command: |
             make wait-for-db
 
