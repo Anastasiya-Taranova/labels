@@ -18,7 +18,7 @@ jobs:
       - run:
           name: (Waiting for Postgres to be ready)
           command: |
-            ./scripts/wait_for_postgresql.sh || exit 1
+            make wait-for-db
       - restore_cache:
           keys:
             - cc-venv-{{ checksum "Pipfile.lock" }}
@@ -31,11 +31,6 @@ jobs:
           key: cc-venv-{{ checksum "Pipfile.lock" }}
           paths:
             - ./.venv/
-
-      - run:
-          name: Reseting Database
-          command: |
-            make migrate
       - restore_cache:
           keys:
             - cc-selenium-{{ checksum "./.circleci/selenium.link" }}
@@ -48,7 +43,10 @@ jobs:
           key: cc-selenium-{{ checksum "./.circleci/selenium.link" }}
           paths:
             - ./selenium.jar
-
+      - run:
+          name: Performing release steps
+          command: |
+            make initdb release
       - run:
           name: (Running Selenium)
           command: java -jar selenium.jar -log selenium.log
