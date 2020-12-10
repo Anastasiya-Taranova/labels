@@ -13,7 +13,7 @@ default:
     - config
   DIRS_SOURCES:
     - src
-    - utils
+    - src/scripts
   DIRS_EXCLUDED:
     - .idea
     - .pytest_cache
