@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  postgres: onehq/postgres@1.1.0
+
 jobs:
   build-and-test:
     docker:
