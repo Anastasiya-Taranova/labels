@@ -7,7 +7,7 @@ from xml.etree.ElementTree import Element
 
 from dynaconf import settings
 
-from scripts.dirs import DIR_IDEA
+from dirs import DIR_IDEA
 
 assert (
     DIR_IDEA.is_dir()

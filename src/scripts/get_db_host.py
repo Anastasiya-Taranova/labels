@@ -1,4 +1,4 @@
-from scripts.db import get_db_host
+from db import get_db_host
 
 
 def main():

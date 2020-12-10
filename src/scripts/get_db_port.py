@@ -1,4 +1,4 @@
-from scripts.db import get_db_port
+from db import get_db_port
 
 
 def main():
