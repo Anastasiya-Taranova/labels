@@ -38,7 +38,7 @@ jobs:
       - run:
           name: (Waiting for Postgres to be ready)
           command: |
-            ./src/scripts/wait_for_postgresql.sh || exit 1
+            make wait-for-db
 
       - postgres/install_postgres_client
 
