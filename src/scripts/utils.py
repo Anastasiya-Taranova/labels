@@ -1,9 +1,7 @@
 import os
 import sys
 
-import six
-
-if six.PY3:
+if sys.version_info[0] == 3:
     from urllib.parse import urlsplit
 else:
     pass
