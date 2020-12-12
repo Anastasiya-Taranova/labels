@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "79765dcd406e5faa797fba6eff84e706b78f4b316a6de2de9d8a9d1d62ea8d35"
+            "sha256": "7c1cede747be721691669ae2ed2e57a44dca48e33c706192d49b10a91e52c4ae"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -328,7 +328,7 @@
                 "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
                 "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.15.0"
         },
         "sqlparse": {
@@ -544,6 +544,14 @@
                 "sha256:f8f295db00ef5f8bae530fc39af0b40486ca6068733fb860b42115052206466f"
             ],
             "version": "==2020.11.13"
+        },
+        "six": {
+            "hashes": [
+                "sha256:30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259",
+                "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==1.15.0"
         },
         "toml": {
             "hashes": [
