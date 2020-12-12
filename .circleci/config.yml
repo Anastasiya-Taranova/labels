@@ -34,11 +34,6 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: (Waiting for Postgres to be ready)
-          command: |
-            make wait-for-db
-
       - postgres/install_postgres_client
 
       - restore_cache:
@@ -53,6 +48,11 @@ jobs:
           key: cc-venv-{{ checksum "Pipfile.lock" }}
           paths:
             - ./.venv/
+
+      - run:
+          name: (Waiting for Postgres to be ready)
+          command: |
+            make wait-for-db
 
       - restore_cache:
           keys:
