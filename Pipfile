@@ -11,6 +11,7 @@ black = "==20.8b1"
 ipython = "==7.19.0"
 isort = "==5.6.4"
 pudb = "==2019.2"
+toml = "==0.10.2"
 
 [packages]
 dj-database-url = "==0.5.0"
