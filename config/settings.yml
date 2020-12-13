@@ -27,6 +27,9 @@ default:
   GITHUB_CLIENT_ID: ""
   GITHUB_SECRET: ""
   GITHUB_ACCESS_TOKEN: ""
+  HEROKU_API_TOKEN: ""
+  HEROKU_API_APP_ID: ""
+  SENTRY_DSN: ""
 
 
 development:
