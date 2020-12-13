@@ -1,4 +1,4 @@
-# labels for github
+# labels for github (in process) 
 https://helper-github.herokuapp.com/
 <br><br>
 Заметки: <br>
