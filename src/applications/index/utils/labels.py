@@ -1,5 +1,5 @@
 import requests
-from utils import get_setting
+from scripts.utils import get_setting
 
 token = get_setting("GITHUB_ACCESS_TOKEN")
 
