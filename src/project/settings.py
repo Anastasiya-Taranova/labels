@@ -70,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-_db_url = get_setting('DATABASE_URL')
+_db_url = get_setting("DATABASE_URL")
 
 DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=600)}
 
@@ -110,8 +110,8 @@ STATIC_ROOT = DIR_REPO / ".static"
 SOCIALACCOUNT_PROVIDERS = {
     "github": {
         "APP": {
-            "client_id": get_setting('GITHUB_CLIENT_ID'),
-            "secret": get_setting('GITHUB_SECRET'),
+            "client_id": get_setting("GITHUB_CLIENT_ID"),
+            "secret": get_setting("GITHUB_SECRET"),
         },
         "SCOPE": [
             "user",

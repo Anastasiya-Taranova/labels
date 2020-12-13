@@ -1,8 +1,7 @@
 import requests
-
 from utils import get_setting
 
-token = get_setting('GITHUB_ACCESS_TOKEN')
+token = get_setting("GITHUB_ACCESS_TOKEN")
 
 headers = {
     "Accept": "application/vnd.github.v3+json",
