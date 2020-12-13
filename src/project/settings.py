@@ -5,9 +5,9 @@ import sentry_sdk
 from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 from sentry_sdk.integrations.django import DjangoIntegration
-from scripts.utils import get_setting
 
 from scripts.dirs import DIR_PROJECT, DIR_REPO
+from scripts.utils import get_setting
 
 SECRET_KEY = _settings.SECRET_KEY
 
@@ -70,6 +70,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "project.wsgi.application"
 
 _db_url = _settings.DATABASE_URL
+
+if _settings.ENV_FOR_DYNACONF == "heroku":
+    _db_url = get_setting("DATABASE_URL")
 
 DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=600)}
 
