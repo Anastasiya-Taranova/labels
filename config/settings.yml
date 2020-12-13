@@ -58,6 +58,7 @@ docker:
   DATABASE_URL: "postgresql://anastasiyataranava:1@labels-db:5432/labels"
 
 heroku:
+  SITE_ID: 1
   ALLOWED_HOSTS:
     - helper-github.herokuapp.com
   MODE_DEBUG: false
