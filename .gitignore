@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 .idea/
 .DS_Store
-.secrets.yaml
+.secrets.*
 ngrok
+*.bak

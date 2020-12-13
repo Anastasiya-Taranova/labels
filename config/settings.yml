@@ -5,6 +5,7 @@ default:
   SITE_ID: 0
   TIME_ZONE: ""
   DEBUG: true
+  HOST: ""
   API_KEY: ""
   WEB_CONCURRENCY: 0
   PORT: -1
@@ -12,7 +13,7 @@ default:
     - config
   DIRS_SOURCES:
     - src
-    - utils
+    - src/scripts
   DIRS_EXCLUDED:
     - .idea
     - .pytest_cache
@@ -33,13 +34,26 @@ development:
   TIME_ZONE: "Europe/Minsk"
   DEBUG: true
   PORT: 8000
+  HOST: "localhost"
 
 ci:
+  HOST: "localhost"
   PORT: 8000
   SECRET_KEY: "1"
   WEB_CONCURRENCY: 2
+  DATABASE_URL: "postgresql://ci:ci@localhost:5432/ci?sslmode=disable"
 
 test:
   SITE_ID: 1
   TIME_ZONE: "UTC"
   DEBUG: true
+
+docker:
+  SECRET_KEY: "1"
+  SITE_ID: 1
+  TIME_ZONE: "Europe/Minsk"
+  DATABASE_URL: "postgresql://anastasiyataranava:1@labels-db:5432/labels"
+
+heroku:
+  MODE_DEBUG: false
+  VENV_SYNTHETIC: 1

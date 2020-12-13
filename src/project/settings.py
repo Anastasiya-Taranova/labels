@@ -6,9 +6,7 @@ from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 from sentry_sdk.integrations.django import DjangoIntegration
 
-PROJECT_DIR = Path(__file__).parent.resolve()
-BASE_DIR = PROJECT_DIR.parent.resolve()
-REPO_DIR = BASE_DIR.parent.resolve()
+from scripts.dirs import DIR_PROJECT, DIR_REPO
 
 SECRET_KEY = _settings.SECRET_KEY
 
@@ -54,7 +52,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            PROJECT_DIR / "templates",
+            DIR_PROJECT / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -103,9 +101,9 @@ SITE_ID = _settings.SITE_ID
 
 STATIC_URL = "/assets/"
 
-STATICFILES_DIRS = [PROJECT_DIR / "static"]
+STATICFILES_DIRS = [DIR_PROJECT / "static"]
 
-STATIC_ROOT = REPO_DIR / ".static"
+STATIC_ROOT = DIR_REPO / ".static"
 
 SOCIALACCOUNT_PROVIDERS = {
     "github": {

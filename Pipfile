@@ -3,21 +3,24 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[packages]
-django = "*"
-dynaconf = { extras = ["yaml"], version = "*" }
-dj-database-url = "*"
-psycopg2-binary = "*"
-sentry-sdk = "*"
-pytest = "*"
-django-allauth = "*"
+[requires]
+python_version = "3.9"
 
 [dev-packages]
 black = "==20.8b1"
-isort = "*"
-ipython = "*"
-gunicorn = "*"
-pudb = "*"
+ipython = "==7.19.0"
+isort = "==5.6.4"
+pudb = "==2019.2"
 
-[requires]
-python_version = "3.8"
+[packages]
+dj-database-url = "==0.5.0"
+django = "==3.1.4"
+django-allauth = "==0.44.0"
+gunicorn = "==20.0.4"
+psycopg2-binary = "==2.8.6"
+pytest = "==6.1.2"
+sentry-sdk = "==0.19.5"
+
+[packages.dynaconf]
+extras = [ "yaml",]
+version = "==3.1.2"
