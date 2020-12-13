@@ -60,3 +60,4 @@ docker:
 heroku:
   MODE_DEBUG: false
   VENV_SYNTHETIC: 1
+  SECRET_KEY: "1"
