@@ -1,5 +1,7 @@
 # labels for github
-
+<br>
+https://helper-github.herokuapp.com/
+<br>
 Заметки: <br>
 Чтобы работал  login через GitHub, нужно: <br>
 1. В админке: <br>
