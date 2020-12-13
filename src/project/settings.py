@@ -7,6 +7,7 @@ from dynaconf import settings as _settings
 from sentry_sdk.integrations.django import DjangoIntegration
 
 from scripts.dirs import DIR_PROJECT, DIR_REPO
+from scripts.utils import get_setting
 
 SECRET_KEY = _settings.SECRET_KEY
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [app for _, app in sorted(INSTALLED_APPS_ORDERED.items())]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -69,6 +71,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "project.wsgi.application"
 
 _db_url = _settings.DATABASE_URL
+
+if _settings.ENV_FOR_DYNACONF == "heroku":
+    _db_url = get_setting("DATABASE_URL")
 
 DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=600)}
 
@@ -120,10 +125,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 sentry_sdk.init(
-    dsn="https://2d9c4ceaaeb54a11b5fa5af67c28a0c3@o383048.ingest.sentry.io/5212832",
-    integrations=[DjangoIntegration()],
+    get_setting("SENTRY_DSN"),
     traces_sample_rate=1.0,
-    send_default_pii=True,
 )
 
 ACCOUNT_EMAIL_VERIFICATION = "none"

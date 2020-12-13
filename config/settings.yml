@@ -27,6 +27,9 @@ default:
   GITHUB_CLIENT_ID: ""
   GITHUB_SECRET: ""
   GITHUB_ACCESS_TOKEN: ""
+  HEROKU_API_TOKEN: ""
+  HEROKU_API_APP_ID: ""
+  SENTRY_DSN: ""
 
 
 development:
@@ -55,5 +58,9 @@ docker:
   DATABASE_URL: "postgresql://anastasiyataranava:1@labels-db:5432/labels"
 
 heroku:
+  SITE_ID: 1
+  ALLOWED_HOSTS:
+    - helper-github.herokuapp.com
   MODE_DEBUG: false
   VENV_SYNTHETIC: 1
+  SECRET_KEY: "1"
