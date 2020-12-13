@@ -5,7 +5,7 @@ import sentry_sdk
 from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 from sentry_sdk.integrations.django import DjangoIntegration
-from utils import get_setting
+from scripts.utils import get_setting
 
 from scripts.dirs import DIR_PROJECT, DIR_REPO
 
