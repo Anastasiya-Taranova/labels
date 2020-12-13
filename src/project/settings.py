@@ -5,6 +5,7 @@ import sentry_sdk
 from django.urls import reverse_lazy
 from dynaconf import settings as _settings
 from sentry_sdk.integrations.django import DjangoIntegration
+from utils import get_setting
 
 from scripts.dirs import DIR_PROJECT, DIR_REPO
 
@@ -120,10 +121,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 sentry_sdk.init(
-    dsn="https://2d9c4ceaaeb54a11b5fa5af67c28a0c3@o383048.ingest.sentry.io/5212832",
-    integrations=[DjangoIntegration()],
+    get_setting("SENTRY_DSN"),
     traces_sample_rate=1.0,
-    send_default_pii=True,
 )
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
