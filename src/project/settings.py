@@ -70,10 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-_db_url = _settings.DATABASE_URL
-
-if _settings.ENV_FOR_DYNACONF == "heroku":
-    _db_url = get_setting("DATABASE_URL")
+_db_url = get_setting('DATABASE_URL')
 
 DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=600)}
 
@@ -113,8 +110,8 @@ STATIC_ROOT = DIR_REPO / ".static"
 SOCIALACCOUNT_PROVIDERS = {
     "github": {
         "APP": {
-            "client_id": _settings.GITHUB_CLIENT_ID,
-            "secret": _settings.GITHUB_SECRET,
+            "client_id": get_setting('GITHUB_CLIENT_ID'),
+            "secret": get_setting('GITHUB_SECRET'),
         },
         "SCOPE": [
             "user",
@@ -123,7 +120,6 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
-
 sentry_sdk.init(
     get_setting("SENTRY_DSN"),
     traces_sample_rate=1.0,

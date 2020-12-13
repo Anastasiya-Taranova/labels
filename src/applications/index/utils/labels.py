@@ -1,7 +1,8 @@
 import requests
-from dynaconf import settings
 
-token = settings.GITHUB_ACCESS_TOKEN
+from utils import get_setting
+
+token = get_setting('GITHUB_ACCESS_TOKEN')
 
 headers = {
     "Accept": "application/vnd.github.v3+json",
